@@ -23,7 +23,7 @@ def compress_image(input_path, width):
     return rgb_array 
 
 def save_hex_array_to_file(hex_array):
-    with open('output.txt', 'w') as f:
+    with open('output/output.txt', 'w') as f:
         for row in range(len(hex_array)):
             for col in range(len(hex_array[row])):
                 rgb_list = [int(x.replace('#','0')) for x in hex_array[row][col].split()]
@@ -43,8 +43,8 @@ def save_hex_array_to_file(hex_array):
 
 
 # Example usage
-input_path = 'Nikon-Z8-Official-Samples-00002.jpg'
-# input_path = "0266554465.jpeg"
+# input_path = 'sample/Nikon-Z8-Official-Samples-00002.jpg'
+input_path = "sample/0266554465.jpeg"
 
 try:
     width = int(argv[1])
@@ -54,4 +54,4 @@ except:
 hex_array = compress_image(input_path, width)
 save_hex_array_to_file(hex_array)
 
-subprocess.run(['bash', 'print_line.sh', 'output.txt', '██', str(width)])
+subprocess.run(['bash', 'print_line.sh', 'output/output.txt', '██', str(width)])
