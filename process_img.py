@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import subprocess
 from sys import argv
+import shutil
 
 def compress_image(input_path, width):
     img = cv2.imread(input_path)
@@ -17,13 +18,7 @@ def compress_image(input_path, width):
     
     img_array = np.array(img)
     
-    def safe_format(x):
-        r = x[0] if x[0] is not None else 0
-        g = x[1] if x[1] is not None else 0
-        b = x[2] if x[2] is not None else 0
-        return '{} {} {}'.format(r, g, b)
-
-    rgb_array = np.apply_along_axis(safe_format, 2, img_array)
+    rgb_array = np.apply_along_axis(lambda x: f'#{x[0]} #{x[1]} #{x[2]}', 2, img_array)
     
     return rgb_array 
 
@@ -31,18 +26,32 @@ def save_hex_array_to_file(hex_array):
     with open('output.txt', 'w') as f:
         for row in range(len(hex_array)):
             for col in range(len(hex_array[row])):
-                r, g, b = hex_array[row][col].split()
+                rgb_list = [int(x.replace('#','0')) for x in hex_array[row][col].split()]
+                if(len(rgb_list) == 3):
+                    r, g, b = rgb_list
+                elif col>0:
+                    prev_pixel = [int(x.replace('#','0')) for x in hex_array[row][col-1].split()]
+                    above_pixel = [int(x.replace('#','0')) for x in hex_array[row-1][col].split()]
+                    avg_pixel = [(prev_pixel[i] + above_pixel[i]) // 2 for i in range(3)]
+                    r, g, b = avg_pixel
+                    hex_array[row][col] = f'#{r} #{g} #{b}'
+                else:
+                    r,g,b = 0,0,0
                 f.write(f'{r},{g},{b}')
                 f.write('\n')
             
 
 
 # Example usage
-input_path = '0266554465.jpeg'
-width = int(argv[1])
+input_path = 'Nikon-Z8-Official-Samples-00002.jpg'
+# input_path = "0266554465.jpeg"
+
+try:
+    width = int(argv[1])
+except:
+    width = shutil.get_terminal_size().columns // 2
 
 hex_array = compress_image(input_path, width)
-# print(hex_array)
 save_hex_array_to_file(hex_array)
 
 subprocess.run(['bash', 'print_line.sh', 'output.txt', '██', str(width)])
