@@ -2,13 +2,33 @@
 
 ## feature (on dev.)
 
-color mode / ascii mode
+display image on shell !
 
-choose width : default -> console width/2 (2 chars/pixel)
-
-port to shell command
+ASCII(gray-scale) / Color (rgb pixel) mode
 
 
-sample img.
+## Usage
 
-![1726817179410](image/README/1726817179410.png)
+```markdown
+python showimg.py [-h] [-a] [-r] [-c] filename [string] [width]
+
+display image in terminal : Color or ASCII art
+
+positional arguments:
+    filename    path to image file
+    string      string to use for pixel representation in normal color mode (default: "██")
+    width       width of the image in characters (default: terminal width)
+
+options:
+    -h, --help  show this help message and exit
+    -a          ascii mode: display image as ascii art (default: False)
+    -r          resize image - decrease height (default: False)
+    -c          advanced color mode: combine color and ascii mode (default: False)
+```
+
+
+## TODO
+
+fix advanced color mode
+
+argument parsing exception handling
