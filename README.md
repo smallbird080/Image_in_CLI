@@ -1,6 +1,6 @@
 # Image in CLI
 
-## feature (on dev.)
+## Features
 
 display image on shell !
 
