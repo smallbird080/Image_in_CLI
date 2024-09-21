@@ -24,7 +24,7 @@ def image_to_rgb(image, string, advanced):
                 else:
                     r,g,b = 0,0,0
                 if advanced:
-                    f.write(f'{r},{g},{b},{string[height * row + col]}')
+                    f.write(f'{r}_{g}_{b}_{string[height * row + col]}')
                 else:
-                    f.write(f'{r},{g},{b},{string}')
+                    f.write(f'{r}_{g}_{b}_{string}')
                 f.write('\n')

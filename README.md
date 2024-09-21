@@ -1,34 +1,85 @@
-# Image_in_CLI
+# Image in CLI
 
 ## feature (on dev.)
 
 display image on shell !
 
-ASCII(gray-scale) / Color (rgb pixel) mode
+Color (rgb pixel) / ASCII(gray-scale) mode
 
+## Requirements
+
+python 3.5 or later
+
+terminal supporting ANSI escape code (for color mode)
 
 ## Usage
 
 ```markdown
-python showimg.py [-h] [-a] [-r] [-c] filename [string] [width]
+python3 showimg.py [-h] [-a] [-r] [-c] [-w [WIDTH]] [-s [STRING]] [-t] filename
 
-display image in terminal : Color or ASCII art
+Display image in terminal : Color or ASCII art
 
 positional arguments:
-    filename    path to image file
-    string      string to use for pixel representation in normal color mode (default: "██")
-    width       width of the image in characters (default: terminal width)
+  filename              path to image file
 
 options:
-    -h, --help  show this help message and exit
-    -a          ascii mode: display image as ascii art (default: False)
-    -r          resize image - decrease height (default: False)
-    -c          advanced color mode: combine color and ascii mode (default: False)
+  -h, --help            show this help message and exit
+  -t, --terminal        print the current terminal column size and exit
+  -a                    ascii mode: display image as ascii art (default: False)
+  -r                    resize image - decrease height (default: False)
+  -c                    advanced color mode: combine color and ascii mode (default: False)
+  -w [WIDTH], --width [WIDTH]
+                        width of the image in characters (default: terminal width * 0.8)
+  -s [STRING], --string [STRING]
+                        string to use for pixel representation in normal color mode (default: "██")
 ```
 
+## Examples
+
+**original image**
+
+![1726920651223](image/README/1726920651223.png)
+
+**color mode (default)**
+
+```markdown
+python3 showimg.py image.png
+```
+
+![1726920908195](image/README/1726920908195.png)
+
+**ascii mode**
+
+```markdown
+python3 showimg.py image.png -a
+```
+
+![1726920985553](image/README/1726920985553.png)
+
+**ascii mode - resized**
+
+```markdown
+python3 showimg.py image.png -ar
+```
+
+![1726921069798](image/README/1726921069798.png)
+
+**advanced color mode**
+
+```markdown
+python3 showimg.py image.png -c
+```
+
+![1726921169764](image/README/1726921169764.png)
+
+**advanced color mode - resized**
+
+```markdown
+python3 showimg.py image.png -cr
+```
+
+![1726921166647](image/README/1726921166647.png)
 
 ## TODO
 
-fix advanced color mode
-
-argument parsing exception handling
+make setup script
