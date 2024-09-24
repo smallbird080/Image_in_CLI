@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import os
 
 def image_to_rgb(image, string, advanced):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)    
@@ -8,8 +9,9 @@ def image_to_rgb(image, string, advanced):
     rgb_array = np.apply_along_axis(lambda x: f'#{x[0]} #{x[1]} #{x[2]}', 2, img_array)
 
     height = len(rgb_array)
-
-    with open('output/output.txt', 'w') as f:
+    output_dir = os.path.dirname(os.path.realpath(__file__))
+    output_path = os.path.join(os.path.dirname(output_dir),'output','output.txt')
+    with open(output_path, 'w') as f:
         for row in range(len(rgb_array)):
             for col in range(len(rgb_array[row])):
                 rgb_list = [int(x.replace('#','0')) for x in rgb_array[row][col].split()]

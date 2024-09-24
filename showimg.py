@@ -1,3 +1,4 @@
+#!/usr/bin/ python3
 import argparse
 import os
 import shutil
@@ -52,5 +53,8 @@ elif args.a:
 else:
     string = args.string
 
+
+script_dir = os.path.dirname(os.path.realpath(__file__))
+script_path = os.path.join(script_dir, 'print.sh')
 logic.image_to_rgb(image,string,args.c)
-subprocess.run(['bash','print.sh',str(image.shape[1])])
+subprocess.run(['bash',script_path,str(image.shape[1])])

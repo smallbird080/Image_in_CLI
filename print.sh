@@ -1,6 +1,8 @@
 #!/bin/bash
 
-file="output/output.txt"
+script_path=$(readlink -f "$0")
+script_dir=$(dirname "$script_path")
+file="$script_dir/output/output.txt"
 width=$1
 count=0
 
