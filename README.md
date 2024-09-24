@@ -14,6 +14,17 @@ terminal supporting ANSI escape code (for color mode)
 
 dependency on opencv-python and numpy
 
+## Installation
+
+```shell
+git clone https://github.com/smallbird080/Image_in_CLI.git
+
+cd Image_in_CLI
+chmod +x setup.sh showimg.py
+
+./setup.sh
+```
+
 ## Usage
 
 ```markdown
