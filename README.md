@@ -15,7 +15,7 @@ terminal supporting ANSI escape code (for color mode)
 ## Usage
 
 ```markdown
-python3 showimg.py [-h] [-a] [-r] [-c] [-w [WIDTH]] [-s [STRING]] [-t] filename
+showimg [-h] [-a] [-r] [-c] [-w [WIDTH]] [-s [STRING]] [-t] filename
 
 Display image in terminal : Color or ASCII art
 
@@ -43,7 +43,7 @@ options:
 **color mode (default)**
 
 ```markdown
-python3 showimg.py image.png
+showimg image.png
 ```
 
 ![1726920908195](image/README/1726920908195.png)
@@ -51,7 +51,7 @@ python3 showimg.py image.png
 **ascii mode**
 
 ```markdown
-python3 showimg.py image.png -a
+showimg image.png -a
 ```
 
 ![1726920985553](image/README/1726920985553.png)
@@ -59,7 +59,7 @@ python3 showimg.py image.png -a
 **ascii mode - resized**
 
 ```markdown
-python3 showimg.py image.png -ar
+showimg image.png -ar
 ```
 
 ![1726921069798](image/README/1726921069798.png)
@@ -67,7 +67,7 @@ python3 showimg.py image.png -ar
 **advanced color mode**
 
 ```markdown
-python3 showimg.py image.png -c
+showimg image.png -c
 ```
 
 ![1726921169764](image/README/1726921169764.png)
@@ -75,7 +75,7 @@ python3 showimg.py image.png -c
 **advanced color mode - resized**
 
 ```markdown
-python3 showimg.py image.png -cr
+showimg image.png -cr
 ```
 
 ![1726921166647](image/README/1726921166647.png)
