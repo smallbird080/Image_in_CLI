@@ -12,6 +12,8 @@ python 3.5 or later
 
 terminal supporting ANSI escape code (for color mode)
 
+dependency on opencv-python and numpy
+
 ## Usage
 
 ```markdown
