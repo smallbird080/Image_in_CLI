@@ -20,7 +20,7 @@ dependency on opencv-python and numpy
 git clone https://github.com/smallbird080/Image_in_CLI.git
 
 cd Image_in_CLI
-chmod +x setup.sh showimg.py
+chmod +x setup.sh
 
 ./setup.sh
 ```

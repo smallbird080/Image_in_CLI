@@ -8,5 +8,6 @@ sudo apt-get install -y libgl1-mesa-glx
 
 pip install numpy opencv-python argparse
 
-sudo mv ../Image_in_CLI /usr/local/bin/Image_in_CLI
+cd ..
+sudo mv ./Image_in_CLI /usr/local/bin/Image_in_CLI
 sudo ln -s /usr/local/bin/Image_in_CLI/showimg.py /usr/local/bin/showimg
