@@ -95,4 +95,6 @@ showimg image.png -cr
 
 ## TODO
 
-make setup script
+change print logic
+
+fix mesa-glx error in ubuntu 24.
